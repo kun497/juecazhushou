@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日觉察助手 - 觉观照问</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-moon"></i>
+                    <span>每日觉察助手</span>
+                </div>
+                <div class="subtitle">
+                    <span class="dimension"><i class="fas fa-eye"></i> 觉</span>
+                    <span class="dimension"><i class="fas fa-heart"></i> 观</span>
+                    <span class="dimension"><i class="fas fa-sun"></i> 照</span>
+                    <span class="dimension"><i class="fas fa-question-circle"></i> 问</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- 聊天区域 -->
+        <div class="chat-container" id="chatContainer">
+            <div class="welcome-message">
+                <div class="welcome-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h2>欢迎来到每日觉察空间</h2>
+                <p>在这里，你可以分享生活中的念头、情绪和困惑</p>
+                <p>我会用"觉、观、照、问"四个维度，帮你深入觉察，看见真相</p>
+                <div class="example-prompts">
+                    <div class="example-title">试着说：</div>
+                    <div class="example-item" onclick="useExample(this)">
+                        <i class="fas fa-quote-left"></i>
+                        昨天晚上写文章时有点焦虑，担心完不成任务
+                    </div>
+                    <div class="example-item" onclick="useExample(this)">
+                        <i class="fas fa-quote-left"></i>
+                        今天陪客户沟通时，感觉表现不好，有点自责
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 输入区域 -->
+        <div class="input-container">
+            <div class="input-wrapper">
+                <textarea
+                    id="messageInput"
+                    placeholder="分享你的觉察..."
+                    rows="1"
+                    onkeydown="handleKeyDown(event)"
+                    oninput="autoResize(this)"
+                ></textarea>
+                <button id="sendButton" onclick="sendMessage()" class="send-button">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="input-footer">
+                <span>按 Enter 发送，Shift + Enter 换行</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 加载提示 -->
+    <div id="loadingIndicator" class="loading-indicator hidden">
+        <div class="spinner"></div>
+        <span>正在觉察中...</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
